@@ -1,0 +1,16 @@
+Sunday 29 January 2023
+
+Implement connection relationship
+implement block status (ready > starting > running > waiting)
+implement block precdence logic to await for all required blocks to complete first
+Run the simulation until the last block complete
+    set the scenartion time to the current day when all the blocks are complete
+    fixed the sequencing to account for blocks strting and completing
+
+    Implemented write to file
+    Implements revenue (Market potential)
+
+Next?: write the data to a data frame
+
+
+

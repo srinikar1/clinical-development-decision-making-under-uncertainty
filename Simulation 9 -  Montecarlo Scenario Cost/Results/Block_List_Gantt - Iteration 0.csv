@@ -1,0 +1,6 @@
+,Iteration,block.id,block.name,block.status,block.start_day,block.duration,block.end_day,block.worked_days,block.daily_rate,block.accrued_cost
+0,0,1,Preclinical,Complete,0,365,364,365,-1468,-535820
+1,0,1,Phase1,Complete,364,218,581,218,-2154,-469572
+2,0,1,Phase2,Complete,581,997,1577,997,-4824,-4809528
+3,0,1,Phase3,Complete,1577,1480,3056,1480,-4953,-7330440
+4,0,1,Market,Complete,3056,3514,6569,3514,3000,10542000

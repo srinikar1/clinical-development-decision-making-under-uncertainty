@@ -1,0 +1,25 @@
+Sunday 29 January 2023
+
+Implement connection relationship
+implement block status (ready > starting > running > waiting)
+implement block precdence logic to await for all required blocks to complete first
+Run the simulation until the last block complete
+    set the scenartion time to the current day when all the blocks are complete
+    fixed the sequencing to account for blocks strting and completing
+
+    Implemented write to file
+    Implements revenue (Market potential)
+
+Next?: write the data to a data frame
+
+Saturday 11 February 2023
+to do - Write the csv to a data frame
+done - implemented activities for each block
+    need to update with final cost this does not work properly.
+
+how do we implement transitional probability?
+    first setup iterations in the model.
+
+
+
+
