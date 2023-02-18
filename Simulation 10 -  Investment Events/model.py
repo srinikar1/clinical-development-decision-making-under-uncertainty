@@ -4,8 +4,6 @@ import hist_costs
 import stats
 
 
-
-
 Clock_id = 1
 Clock_name = "Clock 1"
 Clock_start_day = 1
@@ -25,7 +23,6 @@ def create_clock(id, name, start_day, duration, total_iterations, current_iterat
     # Create the model here
     Clock = classes.Clock(id,name, start_day, duration, total_iterations, current_iteration)
     return Clock
-
 
 def create_model():
     
