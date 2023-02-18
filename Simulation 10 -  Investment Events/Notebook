@@ -70,4 +70,24 @@ Start by assuming that the project will succed then apply uncertainty to determi
 2023021784937 - cashflow works for one iteration,
 Wehn runing many iterations, it does not work
 It needs to accommodate for the max, min, mean, variance accross all simulations
+This is now fixed. 
+    Create a cashflow for one simulation
+        cashflows for many simulations take took long
+    Create a probability distribution for many simulations
+        curve fit the probaility distribution
+
+
+2023021871607 - Investment event
+    There is an inital investment for x
+    There may be more investments over time
+    Purpose of investments is to ensure that debt does not hit a limit
+    If the debt limit is reached, then additional invesment will be required.
+    over time the value to x decreases
+    This shoul dbe modelled over the iuteration
+        Iteration has total accured cost
+            Accrued cost is the sum of every block (total cost)
+
+        Iteration should also have 
+
+
 

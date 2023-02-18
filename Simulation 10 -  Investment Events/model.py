@@ -29,7 +29,7 @@ def create_model():
     stats.reset_model()
 
     #Create the blocks
- # Block Parameters (self, id, name, status, start_day, duration, end_day, worked days, accrued_cost):
+    # Block Parameters (self, id, name, status, start_day, duration, end_day, worked days, accrued_cost):
 
     Preclinical = classes.block(1,"Preclinical","Ready", 0, 0, 0, 0, 0, 0, [], [])
     Phase_1 = classes.block(1,"Phase1","Ready", 0, 0, 0, 0, 0, 0, [],[])
