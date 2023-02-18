@@ -1,0 +1,8 @@
+All the blocks atart at the planned time
+The duration and costs of the blocks are taken from historical values and are samples using a monte carlo simulation
+
+The next stage is to use queues to process
+    Blocks
+    Activities
+    Connections
+    
