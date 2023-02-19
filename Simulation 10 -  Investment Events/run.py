@@ -6,8 +6,6 @@ import fileIO
 import results
 import pandas as pd
 
-
-
 View_iteration_progress = True
 Write_block_list = False # This dramatically slows down the simulation, leave to False
 
