@@ -4,14 +4,11 @@ import hist_costs
 import hist_prob
 import classes
 
-
-
-
-
+# -------------------------------------------------
 class block:
     _registry = [] # create a register of objects that we can iterate over
 
-    def __init__(self, id, name, status, start_day, duration, end_day, worked_days, daily_rate, accrued_cost, requires, activities):
+    def __init__(self, id, name, status, start_day, duration, end_day, worked_days, progress, daily_rate, accrued_cost, requires, activities):
         self._registry.append(self) #Add the newly created object to the register
         self.id = id
         self.name = name
@@ -20,6 +17,7 @@ class block:
         self.duration = hist_durations.duration(self.name)
         self.end_day = end_day
         self.worked_days = worked_days
+        self.progress = progress
         self.daily_rate = hist_costs.daily_rate(self.name)
         self.accrued_cost = accrued_cost
         self.requires = []
@@ -51,17 +49,19 @@ class block:
         if self.status == "Starting":
             self.status = "Running"
             self.end_day = self.start_day + self.duration
+            
 
             #If the block is market then set the end day to the remiaing days of patent
             if self.name == "Market":
                 self.duration = 6570 - self.start_day
                 self.end_day = self.start_day + self.duration
-            
+                
 
         #Update the running block with the worked time and accrued cost
         if self.status == "Running" and self.worked_days < self.duration:
             self.worked_days = self.worked_days + 1
-            self.accrued_cost = self.daily_rate *  self.worked_days 
+            self.accrued_cost = self.daily_rate *  self.worked_days
+            self.progress = int((self.worked_days / self.duration) * 100)
 
 
     def __end_block__ (self, current_day):
@@ -70,6 +70,7 @@ class block:
             self.worked_days = self.worked_days
             self.status = "Complete"
             self.end_day = current_day
+            self.progress = int((self.worked_days / self.duration) * 100)
 
             # Determine if the block was successful.
             success = hist_prob.prob_success (self.name)
@@ -78,10 +79,11 @@ class block:
             elif success == False:
                 self.status = "Failed"
 
+def __del__(self):
+    pass
 
-    def __del__(self):
-        pass
 
+# -------------------------------------------------
 # Activities are created when the task starts and added to the task activities
 class activity:
 
@@ -98,17 +100,20 @@ class activity:
     def __del__(self):
         pass
 
-
-class iteration:
+# -------------------------------------------------
+class scenario:
     _registry = [] # create a register of objects that we can iterate over
 
-    def __init__ (self, id, iteration, total_cost, status):
+    def __init__ (self, id, scenario, total_cost, status):
         self._registry.append(self) #Add the newly created object to the register
         self.id = id
-        self.iteration = iteration
+        self.scenario = scenario
         self.total_cost = total_cost
         self.status = status
 
+
+
+# -------------------------------------------------
 class Clock:
     _registry = [] # create a register of objects that we can iterate over
 
@@ -120,4 +125,5 @@ class Clock:
         self.duration = duration
         self.total_iterations = total_iterations
         self.current_iteration = current_iteration
+
 

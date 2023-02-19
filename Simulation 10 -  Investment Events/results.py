@@ -18,6 +18,7 @@ def create_simulation_histogram(df_iteration_list):
     min = df['TotalCost'].min()
     var = df['TotalCost'].var()
     std = df['TotalCost'].std()
+    mean = df['TotalCost'].mean()
     iterations = df['TotalCost'].count()
 
     A = df.loc[df['DevelopmentProgress'] == 'Market_success', 'TotalCost']
@@ -26,8 +27,6 @@ def create_simulation_histogram(df_iteration_list):
     D = df.loc[df['DevelopmentProgress'] == 'Phase2_failure', 'TotalCost']
     E = df.loc[df['DevelopmentProgress'] == 'Phase3_failure', 'TotalCost']
     F = df['TotalCost']
-
-    print (A)
 
 # Example located at https://www.statology.org/pandas-histogram-by-group/
 
@@ -78,6 +77,7 @@ def create_simulation_summary(df_iteration_list):
     min = df['TotalCost'].min()
     var = df['TotalCost'].var()
     std = df['TotalCost'].std()
+    mean = df['TotalCost'].mean()
     iterations = df['TotalCost'].count()
 
     #print ("Total iterations - " + str(iterations))
@@ -86,11 +86,13 @@ def create_simulation_summary(df_iteration_list):
     #print ("Variance total cost - " + str(var))
     #print ("Standard deviation total cost - " + str(std))
 
-    data5 = str('Simulation iterations - ' + str(iterations))
+   
     data1 = str('Max of total cost for simulation ' + str(max))
     data2 = str('Min of total cost for simulation ' + str(min))
     data3 = str('Variance of total cost for simulation ' + str(var))
     data4 = str('Standard Deviation of total cost for simulation ' + str(std))
+    data5 = str('Simulation iterations - ' + str(iterations))
+    data6 = str('Mean - ' + str(mean))
 
 # Perhaps the stats should be developed for each of the failures?
 
@@ -100,7 +102,8 @@ def create_simulation_summary(df_iteration_list):
     fileIO.write_to_file ("Simulation_results.csv", data2)
     fileIO.write_to_file ("Simulation_results.csv", data3)
     fileIO.write_to_file ("Simulation_results.csv", data4)
-    
+    fileIO.write_to_file ("Simulation_results.csv", data6)
+
     pass
 
 #https://www.datacamp.com/tutorial/how-to-make-gantt-chart-in-python-matplotlib
@@ -115,10 +118,7 @@ def create_gantt_chart(df_block_list_gantt):
 
 
 def create_cash_flow_chart(df_cash_flow_list):
-
-
     df = df_cash_flow_list
-
 
     
 # https://stackoverflow.com/questions/59232073/scatter-plot-with-3-variables-in-matplotlib

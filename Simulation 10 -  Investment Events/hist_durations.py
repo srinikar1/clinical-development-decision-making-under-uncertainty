@@ -13,6 +13,16 @@ def duration(name):
     Market_Duration = [2000, 2000, 2000, 2000]
 
 
+
+    Preclinical_Duration = [365, 365]
+    Phase1_Duration = [210, 210]
+    Phase2_Duration = [720, 720]
+    Phase3_Duration = [109, 109]
+    Phase4_Duration = [100, 100]
+    Market_Duration = [2000, 2000]
+
+
+
     if name == "Preclinical":
         duration = sum(Preclinical_Duration)/len(Preclinical_Duration)
         SDV = np.std(Preclinical_Duration)

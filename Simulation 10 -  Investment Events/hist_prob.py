@@ -14,14 +14,6 @@ def decision(probability):
 
 def prob_success(name):
 
-    Preclinical_success = [1.0]
-    Phase1_success = [1.0]
-    Phase2_success =  [1.0]
-    Phase3_success =  [1.0]
-    Phase4_success = [1.0]
-    Market_success = [1.0]
-
-
     Preclinical_success = [0.9]
     Phase1_success = [0.9]
     Phase2_success =  [0.70]
@@ -29,7 +21,12 @@ def prob_success(name):
     Phase4_success = [1]
     Market_success = [1]
 
-
+    Preclinical_success = [1.0]
+    Phase1_success = [1.0]
+    Phase2_success =  [1.0]
+    Phase3_success =  [1.0]
+    Phase4_success = [1.0]
+    Market_success = [1.0]
 
 
 

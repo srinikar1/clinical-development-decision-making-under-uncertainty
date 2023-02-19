@@ -4,14 +4,6 @@ import stats
 
 # This table shows the sample daily_rates associated with each phase, based on a daily rate
 
-'''
-Preclinical_daily_rate = [-000, 1500, 2500, 2800]
-Phase1_daily_rate = [2000, 1500, 2500, 2800]
-Phase2_daily_rate =  [7000, 6000, 4000, 8000]
-Phase3_daily_rate =  [5000, 6000, 5000, 7000]
-Phase4_daily_rate = [2000, 1500, 2500, 2800]
-Market_daily_rate = [-3000]
-'''
 
 def daily_rate(name):
 
@@ -23,6 +15,15 @@ def daily_rate(name):
     Phase3_daily_rate =  [-5000, -6000, -5000, -7000]
     Phase4_daily_rate = [-2000, -1500, -2500, -2800]
     Market_daily_rate = [3000]
+
+    Preclinical_daily_rate = [-1000, -1000]
+    Phase1_daily_rate = [-2000, -2000]
+    Phase2_daily_rate =  [-7000, -7000]
+    Phase3_daily_rate =  [-5000, -5000]
+    Phase4_daily_rate = [-2000, -2000]
+    Market_daily_rate = [3000, 3000]
+
+
 
     if name == "Preclinical":
         daily_rate = sum(Preclinical_daily_rate)/len(Preclinical_daily_rate)

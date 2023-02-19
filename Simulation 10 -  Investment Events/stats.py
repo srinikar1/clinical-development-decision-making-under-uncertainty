@@ -8,12 +8,12 @@ def sample_norm_dist(mean, stdev):
     s = np.random.normal(mean,stdev,1)
     return (s[0])
 
-#this function determines of all the items in the list are true
+#this function determines of all the items in the list are complete
 #Return false if any blocks are not complete, return true if all blocks are complete
+#This function should allow incomplete...tasks to show "complete"
 def all_complete(iterable):
     for item in iterable:
         if not item.status == "Complete":
-            # print(item.name, item.status)
             return False
         return True
 
@@ -26,9 +26,9 @@ def update_blocks (current_day, iteration_id, iteration, df_block_list, write_bl
         classes.block.__update_block__(b, current_day)
         classes.block.__end_block__(b, current_day)
 
-        if write_block_list == True:
-            #print (current_day)
-            df_block_list.loc[len(df_block_list.index)] = [iteration_id, iteration, current_day, b.name, b.start_day, b.duration, b.end_day, b.status, b.worked_days, b.daily_rate, b.accrued_cost]
+        if write_block_list == True and b.status !="Waiting":
+ 
+            df_block_list.loc[len(df_block_list.index)] = [iteration_id, iteration, current_day, b.name, b.start_day, b.duration, b.end_day, b.status, b.worked_days, b.progress, b.daily_rate, b.accrued_cost]
             fileIO.df_to_csv (df_block_list, "Block_List.csv")
 
     # if any block has failed (False) then stop the simulation
@@ -42,12 +42,18 @@ def update_blocks (current_day, iteration_id, iteration, df_block_list, write_bl
 
 def reset_model ():
 
-
     for item in classes.block._registry.copy():
         classes.block._registry.remove(item)
 
     for item in classes.activity._registry.copy():
         classes.activity._registry.remove(item)
+
+
+
+
+
+
+
 
 
 
