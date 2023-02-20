@@ -13,7 +13,7 @@ Write_block_list = False # This dramatically slows down the simulation, leave to
 df_iteration_list, df_block_list,df_block_list_gantt,df_cash_flow_list = dataframes.create_model_dataframes()
 scenario = model.create_scenario()
 clock = model.create_clock()
-
+#hello
 
 for iteration in range(clock.total_iterations):
 
@@ -29,7 +29,7 @@ for iteration in range(clock.total_iterations):
        
         # STOP the iteration if the block has failed
         if iteration_status == "Failed":
-                iteration.status = (block_name + "_failure")
+                scenario.status = (block_name + "_failure")
                 break 
         scenario.status = (block_name + "_success")
         #iteration.status = ("Interation_in_progress")
@@ -53,10 +53,20 @@ for iteration in range(clock.total_iterations):
         if iteration == 0: #only create the gantt chart for the first iteration
             df_block_list_gantt.loc[len(df_block_list_gantt.index)] = [scenario.scenario, block.id,block.name, block.status, block.start_day, block.duration, block.end_day, block.worked_days, block.progress, block.daily_rate, block.accrued_cost]
 
-
+    '''
     for scr in classes.scenario._registry:
             scr.total_cost = sum(b.accrued_cost for b in classes.block._registry)
             df_iteration_list.loc[len(df_iteration_list.index)] = [scr.id,scr.scenario,scr.total_cost,scr.status]
+
+    '''
+
+    scenario.total_cost = sum(b.accrued_cost for b in classes.block._registry)
+    df_iteration_list.loc[len(df_iteration_list.index)] = [scenario.id,scenario.scenario,scenario.total_cost,scenario.status]
+
+
+
+#TODO:
+#FIXME:
 
 
 results.create_simulation_histogram(df_iteration_list)
@@ -64,3 +74,4 @@ results.create_gantt_chart(df_block_list_gantt)
 results.create_simulation_summary(df_iteration_list)
 results.create_cash_flow_chart(df_cash_flow_list)
 fileIO.df_to_csv(df_iteration_list,'Iteration_List.csv')
+
