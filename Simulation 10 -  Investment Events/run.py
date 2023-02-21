@@ -1,3 +1,4 @@
+import config
 import dataframes
 import classes
 import model
@@ -53,12 +54,6 @@ for iteration in range(clock.total_iterations):
         if iteration == 0: #only create the gantt chart for the first iteration
             df_block_list_gantt.loc[len(df_block_list_gantt.index)] = [scenario.scenario, block.id,block.name, block.status, block.start_day, block.duration, block.end_day, block.worked_days, block.progress, block.daily_rate, block.accrued_cost]
 
-    '''
-    for scr in classes.scenario._registry:
-            scr.total_cost = sum(b.accrued_cost for b in classes.block._registry)
-            df_iteration_list.loc[len(df_iteration_list.index)] = [scr.id,scr.scenario,scr.total_cost,scr.status]
-
-    '''
 
     scenario.total_cost = sum(b.accrued_cost for b in classes.block._registry)
     df_iteration_list.loc[len(df_iteration_list.index)] = [scenario.id,scenario.scenario,scenario.total_cost,scenario.status]
